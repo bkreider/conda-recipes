@@ -1,0 +1,67 @@
+package:
+  name: mahotas
+  version: !!str 1.0.4
+
+source:
+  fn: mahotas-1.0.4.tar.gz
+  url: https://pypi.python.org/packages/source/m/mahotas/mahotas-1.0.4.tar.gz
+  md5: 32c11bb288a02ddea0bb98c3a0e61c2b
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - mahotas = mahotas:main
+    #
+    # Would create an entry point called mahotas that calls mahotas.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - distribute
+    - numpy
+
+
+  run:
+    - python
+    - distribute
+    - numpy
+
+
+test:
+  # Python imports
+  imports:
+    - mahotas.features
+    - mahotas.demos
+    - mahotas.io
+    - mahotas
+    - mahotas.tests
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://luispedro.org/software/mahotas
+  license: MIT License
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
