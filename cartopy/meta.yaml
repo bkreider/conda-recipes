@@ -1,0 +1,29 @@
+package:
+  name: cartopy
+  version: 0.9.0
+
+source:
+  fn: v0.9.0.tar.gz
+  url: https://github.com/SciTools/cartopy/archive/v0.9.0.tar.gz
+  # The above should probably be a github reference and a git_tag
+
+requirements:
+  build:
+    - python
+    - distribute
+    - numpy
+    - cython
+    - proj4
+    - udunits
+    # What are the rest of the deps?
+
+
+  run:
+    - python
+    - distribute
+    - numpy
+    # What are the rest of the deps?
+
+about:
+  home:  https://github.com/SciTools
+  license: Unknown 
