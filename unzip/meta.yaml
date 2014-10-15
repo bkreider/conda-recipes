@@ -1,0 +1,20 @@
+package:
+  name: unzip
+  version: 6.0
+
+source:
+  fn: unzip60.tgz
+  url: ftp://ftp.info-zip.org/pub/infozip/src/unzip60.tgz
+
+build:
+  number: 0
+
+test:
+  commands:
+    - unzip --help
+
+about:
+  home: http://info-zip.org/
+  license:  Multiple licenses
+
+
