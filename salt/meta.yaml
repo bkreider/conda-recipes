@@ -1,0 +1,25 @@
+package:
+  name: salt
+  version: 2014.1.13
+
+build:
+    number:  {{environ.get('BINSTAR_BUILD', 1)}}
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+    - jinja2
+    - msgpack-python
+    - pycrypto
+    - pyyaml
+    - pyzmq >=2.2.0 
+    - markupsafe
+    - apache-libcloud 0.14*
+    - requests
+
+about:
+  home: http://saltstack.com
+  
