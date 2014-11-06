@@ -1,0 +1,22 @@
+package:
+  name: etcd
+  version: 0.4.6
+
+source:
+  git_tag: v0.4.6
+  git_url: git@github.com:coreos/etcd.git
+
+  patches:
+    - relocate_config.patch
+
+build:
+  number: 3
+
+  binary_relocation: true
+  detect_binary_files_with_prefix: true
+  binary_has_prefix_files:
+    - bin/etcd
+
+about:
+  home: https://github.com/coreos/etcd
+  license: Apache License 2.0
