@@ -4,7 +4,7 @@ import sys
 ROOT_DIR=sys.exec_prefix
 
 # Copied from syspaths.py
-CONFIG_DIR = os.path.join(ROOT_DIR, 'etc')
+CONFIG_DIR = os.path.join(ROOT_DIR, 'etc', 'salt')
 CACHE_DIR = os.path.join(ROOT_DIR, 'var', 'cache', 'salt')
 SOCK_DIR = os.path.join(ROOT_DIR, 'var', 'run', 'salt')
 SRV_ROOT_DIR = os.path.join(ROOT_DIR, 'srv')

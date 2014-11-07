@@ -1,8 +1,11 @@
 #!/bin/bash
 
+# For in source build
 # src is with recipe
-SRC_DIR=$RECIPE_DIR/..
-cd $SRC_DIR
+#SRC_DIR=$RECIPE_DIR/..
+#cd $SRC_DIR
+
+SRC_DIR="."
 
 $PYTHON setup.py install
 
@@ -14,7 +17,7 @@ $PYTHON setup.py install
 # this file re-maps the default paths for configs
 cp $RECIPE_DIR/_syspaths.py $SP_DIR/salt
 
-DIRECTORIES="etc
+DIRECTORIES="etc/salt
 var/cache/salt
 var/run/salt
 srv/salt
@@ -33,5 +36,5 @@ done
 # Copy default config files
 # 
 
-cp $SRC_DIR/conf/master $PREFIX/etc/master.example
-cp $SRC_DIR/conf/minion $PREFIX/etc/minion.example
+cp $SRC_DIR/conf/master $PREFIX/etc/salt/master.example
+cp $SRC_DIR/conf/minion $PREFIX/etc/salt/minion.example
