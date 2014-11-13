@@ -38,3 +38,6 @@ done
 
 cp $SRC_DIR/conf/master $PREFIX/etc/salt/master.example
 cp $SRC_DIR/conf/minion $PREFIX/etc/salt/minion.example
+
+# todo: this should be a post-install so it doesn't wipe out user's changes
+cp $RECIPE_DIR/pillar_top.sls $PREFIX/srv/pillar/top.sls
