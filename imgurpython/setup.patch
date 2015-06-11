@@ -1,0 +1,15 @@
+--- setup.py	2015-06-11 00:29:05.000000000 -0400
++++ setup.py.new	2015-06-11 00:29:39.000000000 -0400
+@@ -56,12 +56,6 @@
+     # simple. Or you can use find_packages().
+     packages=find_packages(),
+ 
+-    # List run-time dependencies here.  These will be installed by pip when your
+-    # project is installed. For an analysis of "install_requires" vs pip's
+-    # requirements files see:
+-    # https://packaging.python.org/en/latest/technical.html#install-requires-vs-requirements-files
+-    install_requires=['requests'],
+-
+     # If there are data files included in your packages that need to be
+     # installed, specify them here.  If using Python 2.6 or less, then these
+     # have to be included in MANIFEST.in as well.
