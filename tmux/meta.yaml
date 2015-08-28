@@ -1,0 +1,18 @@
+package:
+  name: tmux
+  version: 2.0
+
+source:
+  fn: tmux-2.0.tar.gz
+  url: https://github.com/tmux/tmux/releases/download/2.0/tmux-2.0.tar.gz
+
+requirements:
+  build:
+    # gcc, ncurses (yum install ncurses-devel)
+    - libevent
+  run:
+    - libevent
+
+about:
+  home: https://tmux.github.io/
+  license: ISC
