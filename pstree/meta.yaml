@@ -1,0 +1,15 @@
+package:
+  name: pstree
+  version: 2.38
+
+source:
+  fn: pstree.tar.gz
+  url: http://www.thp.uni-duisburg.de/pstree/pstree.tar.gz 
+
+test:
+  commands:
+    - pstree
+
+about:
+  home: http://www.thp.uni-duisburg.de/pstree/
+  license: GPL

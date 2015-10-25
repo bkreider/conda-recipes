@@ -1,0 +1,18 @@
+# This recipe came from homebrew and is licensed as such.  gpl?
+# 
+#
+package:
+  name: netcat
+  version: 0.7.1
+
+source:
+  fn: netcat-0.7.1.tar.bz2
+  url: https://downloads.sourceforge.net/project/netcat/netcat/0.7.1/netcat-0.7.1.tar.bz2
+
+test:
+  commands:
+    - nc -V
+
+about:
+  home: http://netcat.sourceforge.net/
+  license: GPL

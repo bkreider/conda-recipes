@@ -1,0 +1,22 @@
+package:
+  name: autopkg
+  version: 0.5.1
+
+source:
+  git_url: https://github.com/autopkg/autopkg
+  git_tag: v0.5.1
+
+build:
+  number: {{ environ.get('BINSTAR_BUILD', 2) }}
+
+  # Make copies of config files, so they are safe to edit
+  no_link:  Library/*
+
+test:
+  commands:
+    - autopkg --help
+
+
+about:
+  home: http://autopkg.github.io/autopkg/ 
+  license: Apache 2.0

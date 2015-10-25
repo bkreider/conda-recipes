@@ -1,0 +1,8 @@
+--- setup.py	2015-06-11 00:29:05.000000000 -0400
++++ setup.py.new	2015-06-11 00:29:39.000000000 -0400
+@@ -56,12 +56,6 @@
+     # simple. Or you can use find_packages().
+     packages=find_packages(),
+ 
+-    install_requires=['requests'],
+-

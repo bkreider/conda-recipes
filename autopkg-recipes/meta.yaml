@@ -1,0 +1,16 @@
+package:
+  name: autopkg-recipes
+  version: 0.5.1
+
+source:
+  git_url: https://github.com/autopkg/recipes.git
+
+build:
+  number: {{ environ.get('BINSTAR_BUILD', 1) }}
+
+  # Make copies of config files, so they are safe to edit
+  no_link:  Library/*
+
+about:
+  home: https://github.com/autopkg/recipes
+  license: Apache 2.0
