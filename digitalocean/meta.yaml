@@ -1,0 +1,21 @@
+package:
+  name: python_digitalocean
+  version: 1.8.1
+
+source:
+  git_url: https://github.com/bkreider/python-digitalocean.git
+
+build:
+    number:  {{environ.get('BINSTAR_BUILD', 1)}}
+
+requirements:
+  build:
+    - python
+    - requests
+
+  run:
+    - requests
+
+about:
+  home: https://github.com/bkreider/python-digitalocean
+  license: GPL3
