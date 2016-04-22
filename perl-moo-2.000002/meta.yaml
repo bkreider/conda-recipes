@@ -1,0 +1,65 @@
+package:
+  name: perl-moo
+  version: "2.000002"
+
+source:
+  fn: Moo-2.000002.tar.gz
+  url: https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.000002.tar.gz
+  md5: 8b84a7289fc6247de5ec5d151105fd6b
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - perl
+    - perl-extutils-makemaker
+    - perl-module-runtime
+    - perl-test-simple #0.94
+    - perl-exporter
+    - perl-class-method-modifiers
+    - perl-devel-globaldestruction
+    - perl-test-fatal
+    - perl-role-tiny
+    - perl-scalar-list-utils
+
+  run:
+    - perl
+    - perl-module-runtime
+    - perl-role-tiny
+    - perl-exporter
+    - perl-class-method-modifiers
+    - perl-devel-globaldestruction
+    - perl-scalar-list-utils
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Moo
+    - Moo::HandleMoose
+    - Moo::HandleMoose::FakeConstructor
+    - Moo::HandleMoose::FakeMetaClass
+    - Moo::Object
+    - Moo::Role
+    - Moo::sification
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://metacpan.org/pod/Moo
+  license: perl_5
+  summary: 'Minimalist Object Orientation (with Moose compatibility)'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

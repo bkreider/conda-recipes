@@ -1,0 +1,4 @@
+# Empty package
+package:
+  name: perl-carp
+  version: 0.1

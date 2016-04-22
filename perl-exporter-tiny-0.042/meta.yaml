@@ -1,0 +1,47 @@
+package:
+  name: perl-exporter-tiny
+  version: "0.042"
+
+source:
+  fn: Exporter-Tiny-0.042.tar.gz
+  url: http://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-0.042.tar.gz
+  md5: 77ba432037f35bc9b84b717639075fc6
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - perl
+    - perl-extutils-makemaker
+    - perl-test-simple # 0.47
+
+  run:
+    - perl
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Exporter::Shiny
+    - Exporter::Tiny
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://metacpan.org/release/Exporter-Tiny
+  license: perl_5
+  summary: 'an exporter with the features of Sub::Exporter but only core dependencies'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

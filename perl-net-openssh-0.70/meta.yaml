@@ -1,0 +1,61 @@
+package:
+  name: perl-net-openssh
+  version: "0.70"
+
+source:
+  fn: Net-OpenSSH-0.70.tar.gz
+  url: https://cpan.metacpan.org/authors/id/S/SA/SALVA/Net-OpenSSH-0.70.tar.gz
+  md5: f37eaebeddf9d0218f94eb1913c9d728
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - perl
+    - perl-extutils-makemaker
+    - perl-test-simple
+
+  run:
+    - perl
+    - perl-test-simple
+    - perl-moo
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Net::OpenSSH
+    - Net::OpenSSH::ConnectionCache
+    - Net::OpenSSH::Constants
+    - Net::OpenSSH::ModuleLoader
+    - Net::OpenSSH::OSTracer
+    - Net::OpenSSH::ObjectRemote
+    - Net::OpenSSH::SSH
+    - Net::OpenSSH::ShellQuoter
+    - Net::OpenSSH::ShellQuoter::Chain
+    - Net::OpenSSH::ShellQuoter::MSCmd
+    - Net::OpenSSH::ShellQuoter::MSWin
+    - Net::OpenSSH::ShellQuoter::POSIX
+    - Net::OpenSSH::ShellQuoter::csh
+    - Net::OpenSSH::ShellQuoter::fish
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://metacpan.org/pod/Net-OpenSSH
+  license: perl_5
+  summary: 'Perl SSH client package implemented on top of OpenSSH'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
