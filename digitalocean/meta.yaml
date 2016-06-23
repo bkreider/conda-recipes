@@ -1,5 +1,5 @@
 package:
-  name: python_digitalocean
+  name: python-digitalocean
   version: 1.8.1
 
 source:
