@@ -1,0 +1,22 @@
+package:
+  name: haproxy
+  version: 1.6.9
+
+source:
+  fn: haproxy-1.6.9.tar.gz
+  url: http://www.haproxy.org/download/1.6/src/haproxy-1.6.9.tar.gz
+  md5: c52eee40eb66f290d6f089c339b9d2b3
+
+requirements:
+  build:
+    - openssl
+    - pcre
+
+  run:
+    - openssl
+    - pcre
+
+about:
+  home: http://www.haproxy.org/
+  license: GPL2
+
