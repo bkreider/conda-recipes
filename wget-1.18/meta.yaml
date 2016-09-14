@@ -1,0 +1,15 @@
+package:
+  name: wget
+  version: 1.18
+
+source:
+  fn: wget-1.18.tar.gz
+  url: http://ftp.gnu.org/gnu/wget/wget-1.18.tar.gz
+
+requirements:
+  build:
+    - python >=3
+
+about:
+  home: https://www.gnu.org/software/wget/
+  license: GPL
