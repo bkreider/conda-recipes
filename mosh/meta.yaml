@@ -1,0 +1,21 @@
+package:
+  name: mosh
+  version: 1.26
+
+source:
+  url: https://mosh.org/mosh-1.2.6.tar.gz
+
+requirements:
+  build:
+    - pkg-config
+    - libcprotobuf 3.0.*     # bkreider's minimal protobuf library -- no python dependency
+    - openssl
+
+  run:
+    - libcprotobuf 3.0.*     # bkreider's minimal protobuf library -- no python dependenc
+    - openssl
+
+
+about:
+  home: https://mosh.org/
+  license: GPLv3 
