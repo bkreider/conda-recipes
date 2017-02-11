@@ -35,6 +35,11 @@ requirements:
         - libtool            # [unix]
         - pkg-config         # [unix]
         - zlib 1.2.*
+        # patch - yum install patch
+        # RHEL/Centos - deps
+        # yum install gcc-g++  
+        # yum install "perl(Thread::Queue)"
+        # yum instal "perl(Data::Dumper)"
 
     run:
         - zlib 1.2.*
