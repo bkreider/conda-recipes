@@ -10,12 +10,18 @@ requirements:
     - pkg-config
     - libcprotobuf 3.0.*     # bkreider's minimal protobuf library -- no python dependency
     - openssl
+    - ncurses
+    - zlib
 
   run:
     - libcprotobuf 3.0.*     # bkreider's minimal protobuf library -- no python dependenc
     - openssl
+    - ncurses
+    - zlib
 
 
 about:
   home: https://mosh.org/
   license: GPLv3 
+
+
