@@ -1,0 +1,23 @@
+package:
+  name: stunnel
+  version: 5.42
+
+source:
+  fn: stunnel-5.42.tar.gz
+  url: https://www.stunnel.org/downloads/stunnel-5.42.tar.gz
+
+build:
+  number: {{environ.get('BINSTAR_BUILD', 1)}}
+  no_link:
+    - etc/*
+
+requirements:
+  build:
+    - openssl
+
+  run:
+    - openssl
+
+about:
+  home: https://www.stunnel.org
+  license: GPL
