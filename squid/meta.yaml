@@ -1,0 +1,16 @@
+package:
+  name: squid
+  version: 3.5.19
+
+source:
+  fn: squid-3.5.19.tar.gz
+  url: http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.19.tar.gz
+
+requirements:
+  build:
+    - perl
+    - openssl
+
+about:
+  home: https://www.gnu.org/software/wget/ 
+  license: GPL2

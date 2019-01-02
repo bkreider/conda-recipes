@@ -1,0 +1,69 @@
+{% set name = "pyvmomi" %}
+{% set version = "6.7.1" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "41c1ac92741f2b483bd0178010ecca20033121e250a1f32fd1d3f68d4aa08b31" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.zip'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - requests >=2.3.0
+    - six >=1.7.3
+  run:
+    - python
+    - requests >=2.3.0
+    - six >=1.7.3
+
+test:
+  imports:
+    - pyVim
+    - pyVmomi
+#  requires:
+#    - testtools >=0.9.34
+#    - tox
+#    - vcrpy ==1.12.0
+
+about:
+  home: https://github.com/vmware/pyvmomi
+  license: Apache Software License
+  license_family: APACHE
+  license_file: ''
+  summary: VMware vSphere Python SDK
+  description: ".. image:: https://travis-ci.org/vmware/pyvmomi.svg?branch=v6.0.0.2016.4\n    :target: https://travis-ci.org/vmware/pyvmomi\n    :alt: Build Status\n\n.. image:: https://img.shields.io/pypi/dm/pyvmomi.svg\n\
+    \    :target: https://pypi.python.org/pypi/pyvmomi/\n    :alt: Downloads\n\npyVmomi is the Python SDK for the VMware vSphere API that allows you to manage \nESX, ESXi, and vCenter.\n\nGetting Started\n\
+    ================\nTo get started, see the `getting started guide <http://vmware.github.io/pyvmomi-community-samples/#getting-started>`_. You'll need `Python <https://www.python.org/downloads/>`_, `pip\
+    \ <https://pip.pypa.io/en/latest/installing.html#using-package-managers>`_, and the `samples project <https://github.com/vmware/pyvmomi-community-samples/tarball/master>`_.\n\n* http://vmware.github.io/pyvmomi-community-samples/\n\
+    * community discussion on IRC freenode.net channels `#pyvmomi and #pyvmomi-dev <http://webchat.freenode.net/?channels=#pyvmomi,#pyvmomi-dev>`_\n* community email is on `nabble <http://pyvmomi.2338814.n4.nabble.com>`_\n\
+    \nDon't know what pip is? Any serious python developer should know, so here's a `throrough intro to pip <http://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/>`_ that we like.\n\nInstalling\n\
+    ==========\nThe master is code that is in development, official releases are tagged and \nposted to `pypi <https://pypi.python.org/pypi/pyvmomi/>`_\n\n* The official release is available using pip,\
+    \ just run \n  ``pip install --upgrade pyvmomi``. \n* To install the version in `github <https://github.com/vmware/pyvmomi>`_ use \n  ``python setup.py develop`` for development install or \n  ``python\
+    \ setup.py install``. \n\nTesting\n=======\nUnit tests can be invoked by using the `tox <https://testrun.org/tox/>`_ command. You may have to\nconfigure multiple python interpreters so that you can\
+    \ test in all the\nenvironments listed in ``tox.ini`` or you will have to run ``tox`` with the\n``-e`` flag to run only in your version of python. For example, if you only\nhave Python 2.7 then ``tox\
+    \ -e py27`` will limit your test run to Python 2.7.\n\nContributing\n============\n* Research `open issues <https://github.com/vmware/pyvmomi/issues?q=is%3Aopen+is%3Aissue>`_\n* Follow the `contribution\
+    \ standards <https://github.com/vmware/pyvmomi/wiki/Contributions>`_\n* Coordinate with `other developers <http://webchat.freenode.net/?channels=#pyvmomi,#pyvmomi-dev>`_ on the project.\n\nDocumentation\n\
+    =============\nFor general language neutral documentation of vSphere Management API see: \n\n* `vSphere WS SDK API Docs <https://vdc-download.vmware.com/vmwb-repository/dcr-public/6b586ed2-655c-49d9-9029-bc416323cb22/fa0b429a-a695-4c11-b7d2-2cbc284049dc/doc/index.html>`_\n\
+    \nPython Support\n==============\n* pyVmomi 6.7.1 supports 2.7, 3.3, 3.4, 3.5 & 3.6\n* pyVmomi 6.7 supports 2.7, 3.3, 3.4, 3.5 & 3.6\n* pyVmomi 6.5 supports 2.7, 3.3, 3.4 and 3.5\n* pyVmomi 6.0.0.2016.4\
+    \ and later support 2.7, 3.3 and 3.4\n* pyVmomi 6.0.0 and later support 2.7, 3.3 and 3.4\n* pyVmomi 5.5.0-2014.1 and 5.5.0-2014.1.1 support Python 2.6, 2.7, 3.3 and 3.4\n* pyVmomi 5.5.0 and below support\
+    \ Python 2.6 and 2.7\n\nCompatibility Policy\n====================\npyVmomi versions are marked vSphere_version-release . Pyvmomi maintains minimum \nbackward compatibility with the previous _four_\
+    \ releases of *vSphere* and it's \nown previous four releases. Compatibility with much older versions may continue \nto work but will not be actively supported.\n\nFor example, version v6.0.0 is most\
+    \ compatible with vSphere 6.0, 5.5, 5.1 and\n5.0. Initial releases compatible with a version of vSphere will bare a naked\nversion number of v6.0.0 indicating that version of pyVmomi was released\n\
+    simultaneously with the *GA* version of vSphere with the same version number.\n\nRelated Projects\n================\n* VMware vSphere Automation SDK for Python: https://developercenter.vmware.com/web/sdk/65/vsphere-automation-python\n\
+    * Samples Project: https://github.com/vmware/pyvmomi-community-samples\n* Feature Incubator: pyvmomi-tools https://github.com/vmware/pyvmomi-tools\n\nHave fun!"
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: ''

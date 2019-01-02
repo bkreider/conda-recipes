@@ -1,0 +1,79 @@
+{% set version = '1.1-12' %}
+
+{% set posix = 'm2-' if win else '' %}
+{% set native = 'm2w64-' if win else '' %}
+
+package:
+  name: r-contfrac
+  version: {{ version|replace("-", "_") }}
+
+source:
+  fn: contfrac_{{ version }}.tar.gz
+  url:
+    - https://cran.r-project.org/src/contrib/contfrac_{{ version }}.tar.gz
+    - https://cran.r-project.org/src/contrib/Archive/contfrac/contfrac_{{ version }}.tar.gz
+
+
+  sha256: 95bfc5e970513416c080486a1cd8dfd9f8d59fb691b02ef6ccbe0ce1ed61056b
+  # patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  # If this is a new build for the same version, increment the build number.
+  number: 0
+
+  # This is required to make R link correctly on Linux.
+  rpaths:
+    - lib/R/lib/
+    - lib/
+
+
+requirements:
+  build:
+    - r-base
+    - posix                # [win]
+    - {{native}}toolchain  # [win]
+    - gcc                  # [not win]
+
+  run:
+    - r-base
+    - {{native}}gcc-libs   # [win]
+    - libgcc               # [not win]
+
+test:
+  commands:
+    # You can put additional test commands to be run here.
+    - $R -e "library('contfrac')"  # [not win]
+    - "\"%R%\" -e \"library('contfrac')\""  # [win]
+
+  # You can also put a file called run_test.py, run_test.sh, or run_test.bat
+  # in the recipe that will be run at test time.
+
+  # requires:
+    # Put any additional test requirements here.
+
+about:
+  home: https://github.com/RobinHankin/contfrac.git
+  license: GPL-2
+  summary: Various utilities for evaluating continued fractions.
+  license_family: GPL2
+
+# The original CRAN metadata for this package was:
+
+# Package: contfrac
+# Title: Continued Fractions
+# Version: 1.1-12
+# Author: Robin K. S. Hankin
+# Description: Various utilities for evaluating continued fractions.
+# Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
+# License: GPL-2
+# Packaged: 2018-05-17 02:38:11 UTC; rhankin
+# URL: https://github.com/RobinHankin/contfrac.git
+# NeedsCompilation: yes
+# Repository: CRAN
+# Date/Publication: 2018-05-17 04:13:09 UTC
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

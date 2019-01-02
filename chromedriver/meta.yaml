@@ -1,0 +1,23 @@
+package:
+  name: chromedriver
+  version: "2.29"
+
+source:
+  fn:  chromedriver_mac64.zip
+  url: https://chromedriver.storage.googleapis.com/2.29/chromedriver_mac64.zip
+
+build:
+  number: 1
+
+  # linked against OSX libraries - they are not installed in env
+  binary_relocation: false
+
+test:
+  commands:
+    - chromedriver -h
+
+about:
+  home: https://sites.google.com/a/chromium.org/chromedriver
+  license: Chrome
+  summary: 'Webdriver for chrome'
+  license_family: APACHE

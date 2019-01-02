@@ -1,0 +1,16 @@
+package:
+  name: file-slurp
+  version: 9999.19 
+
+build:
+    number:  {{environ.get('BINSTAR_BUILD', 1)}}
+
+requirements:
+  build:
+    - perl
+
+  run:
+    - perl
+
+about:
+  home: https://metacpan.org/pod/File::Slurp
