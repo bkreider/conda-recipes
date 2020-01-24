@@ -12,6 +12,8 @@ package:
 source:
   git_rev: v4.9.0
   git_url: https://github.com/facebook/watchman.git
+  patches:
+    - patch1.patch
 
 build:
   number: 0
@@ -22,8 +24,10 @@ requirements:
     - make
     - autoconf
     - automake
-    - openssl
+    - libtool
     - pkg-config
+  host:
+    - openssl
 
 about:
     home: git clone https://github.com/facebook/watchman.git
