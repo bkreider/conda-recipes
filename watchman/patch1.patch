@@ -1,0 +1,16 @@
+diff --git a/configure.ac b/configure.ac
+index 7e809a5d..bcd51216 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -317,9 +317,9 @@ if test -n "$GCC" -a "$stack_protect" = "yes" ; then
+   CXXFLAGS="$CXXFLAGS -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4"
+ fi
+ IRONMANCFLAGS=""
+-if test -n "$GCC" -a "$lenient" = "no" ; then
+-  IRONMANCFLAGS="-Werror"
+-fi
++#if test -n "$GCC" -a "$lenient" = "no" ; then
++#  IRONMANCFLAGS="-Werror"
++#fi
+ AC_SUBST(IRONMANCFLAGS)
+ AC_CONFIG_HEADER([config.h])
