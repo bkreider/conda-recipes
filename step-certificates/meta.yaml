@@ -1,0 +1,50 @@
+{% set name = "step-certificates" %}
+{% set version = "0.13.3" %}
+
+# 
+#  This only works on OSX at the moment
+# 
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  git_rev: v0.13.3
+  git_url: https://github.com/smallstep/certificates.git
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('go') }}
+    - clangxx_osx-64
+    - make
+
+test:
+    commands:
+        - test -x $PREFIX/bin/step-ca
+
+about:
+    home: https://github.com/smallstep/certificates
+    license: Apache 2.0
+    summary: online certificate authority and tools for secure automated cert management
+    description: |
+        An online certificate authority and related tools for secure automated
+        certificate management, so you can use TLS everywhere.
+
+        This repository is for step-ca, a certificate authority that exposes an
+        API for automated certificate management. It also contains a golang SDK
+        for interacting with step-ca programatically. However, you'll probably
+        want to use the step command-line tool to operate step-ca and get
+        certificates, instead of using this low-level SDK directly.
+
+    dev_url: https://github.com/smallstep/certificates
+    doc_url: https://github.com/smallstep/certificates/blob/master/docs/GETTING_STARTED.md
+
+
+extra:
+  recipe-maintainers:
+    - bkreider
+
