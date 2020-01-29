@@ -1,0 +1,50 @@
+{% set name = "make2graph" %}
+{% set version = "1.5.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  git_url: https://github.com/lindenb/makefile2graph.git
+  git_rev: v1.5.0
+
+build:
+  number: 0
+  #script: make install prefix=$PREFIX
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - make
+
+  run:
+    # not hard requirement, but only useful with batteries included for dot
+    - graphviz
+
+test:
+  run:
+    - graphviz # needed for dot 
+  commands:
+    - make2graph -v
+
+about:
+  home: https://github.com/lindenb/makefile2graph.git
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: "Plot makefile targets and dependencies"
+
+  description: |
+    This package provides a library and a command-line tool named wormhole, 
+    which makes it possible to get arbitrary-sized files and directories (or 
+    short pieces of text) from one computer to another. The two endpoints are 
+    identified by using identical "wormhole codes": in general, the sending 
+    machine generates and displays the code, which must then be typed into 
+    the receiving machine.
+  doc_url: https://magic-wormhole.readthedocs.io/en/latest/
+  dev_url: http://github.com/warner/magic-wormhole
+
+extra:
+  recipe-maintainers:
+    - CJ-Wright
