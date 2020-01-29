@@ -1,11 +1,21 @@
 #!/bin/bash
 
+env
 
 # SSL is linked against conda's ssl
 # PCRE is linked against the conda library
 # ZLIB is probably linked against the system
 # TARGET is linux 2.8+
-make TARGET=linux2628 \
+#make TARGET=linux2628 \
+
+if [[ $target_platform="osx-64" ]]
+then
+     TARGET="osx"
+else
+     TARGET="linux2628"
+fi
+
+make TARGET=$TARGET \
      USE_OPENSSL=1 \
      SSL_INC=$PREFIX/include \
      SSL_LIB=$PREFIX/lib \

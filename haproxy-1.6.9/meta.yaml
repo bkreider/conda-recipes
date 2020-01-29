@@ -8,10 +8,11 @@ source:
   md5: c52eee40eb66f290d6f089c339b9d2b3
 
 build:
-  number:  {{environ.get('BINSTAR_BUILD', 2)}}
+  number: 3
 
 requirements:
   build:
+    #- {{ compiler('c') }}
     - openssl
     - pcre
 
